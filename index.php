@@ -95,10 +95,13 @@
 
     // Iterates through each empty array
     foreach($arrayTask3 as &$arrayInside) {
+      
       // generates the size of the new Inside Array
       $randomSize = rand(2,20);
+      
       // fills array with randomized size and fills with default 'A's
       $arrayInside = array_fill(0,$randomSize,'A');
+      
       // changes values to random letters for each element.
       foreach($arrayInside as &$letter) {
         $letter = chr(rand(65,90));
@@ -122,19 +125,27 @@
   <div class="task5">
     <?php
       echo '<h2> Task ' . (++$taskNumber) . '</h2>';
-      
+    $userDB = array_fill(0,30,'A');
+
+    foreach ($userDB as &$value){
+      $value = [
+        'user_id' => rand(1,100000), 
+        'place_in_row' => rand(0,100)
+      ];
+    }
+    
+    echo '<pre>';
+    print_r($userDB);
     ?>
   </div>
   <div class="task6">
     <?php
       echo '<h2> Task ' . (++$taskNumber) . '</h2>';
-      
     ?>
   </div>
   <div class="task7">
     <?php
       echo '<h2> Task ' . (++$taskNumber) . '</h2>';
-      
     ?>
   </div>
   <div class="task8">
