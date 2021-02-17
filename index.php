@@ -114,7 +114,9 @@
   <div class="task4">
     <?php
       echo '<h2> Task ' . (++$taskNumber) . '</h2>';
-      
+      echo '<pre>';
+      sort($arrayTask3);
+      print_r($arrayTask3);
     ?>
   </div>
   <div class="task5">
