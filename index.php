@@ -16,6 +16,7 @@
       $taskNumber = 0;
       echo '<h2> Task ' . (++$taskNumber) . '</h2>';
       $arrayTask1 = [];
+
       foreach(range(1,10) as $key1 => $_){
         foreach(range(1,5) as $key2 => $_){
           $arrayTask1[$key1][$key2] = rand(5,25);
@@ -114,6 +115,7 @@
     print_r($arrayTask3);
     ?>
   </div>
+
   <div class="task4">
     <?php
       echo '<h2> Task ' . (++$taskNumber) . '</h2>';
@@ -125,22 +127,55 @@
   <div class="task5">
     <?php
       echo '<h2> Task ' . (++$taskNumber) . '</h2>';
-    $userDB = array_fill(0,30,'A');
-
-    foreach ($userDB as &$value){
-      $value = [
-        'user_id' => rand(1,100000), 
-        'place_in_row' => rand(0,100)
-      ];
-    }
     
+    // TODO: ------------- MISSING UNIQUE ID  -----------
+
+    $userDB = array_fill(0,30,['user_id' => 0,'place_in_row' => 0]);
+
+    foreach ($userDB as &$user){
+      $randomRow = rand(0,100);
+      $randomID = rand(1,1000000);
+      $user = [
+        'user_id' => $randomID,
+        'place_in_row' => $randomRow
+      ];
+  }
     echo '<pre>';
-    print_r($userDB);
+    _dc($userDB);
+    
     ?>
   </div>
   <div class="task6">
     <?php
       echo '<h2> Task ' . (++$taskNumber) . '</h2>';
+      /* Išrūšiuokite 5 uždavinio masyvą pagal user_id didėjančia tvarka. Ir paskui išrūšiuokite pagal place_in_row mažėjančia tvarka. */
+
+
+    echo '<div class="two-columns">';
+      echo '<div class="left">';
+        echo "user_id ascending: <br>";
+        
+        usort($userDB, function($a,$b) {
+          return $a['user_id'] <=> $b['user_id'];
+        });
+        
+        echo '<pre>';
+        print_r($userDB);
+        echo '</div>';
+        
+        echo '<div class="right">';
+        echo "place_in_row descending: <br>";
+        
+        usort($userDB, function($a,$b) {
+          return $b['place_in_row'] <=> $a['place_in_row'];
+        });
+
+        echo '<pre>';
+        print_r($userDB);
+      echo '</div>';
+    echo '</div>';
+
+
     ?>
   </div>
   <div class="task7">
