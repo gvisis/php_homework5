@@ -15,6 +15,68 @@
     <?php
       $taskNumber = 0;
       echo '<h2> Task ' . (++$taskNumber) . '</h2>';
+      $arrayTask1 = [];
+      foreach(range(1,10) as $key1 => $_){
+        foreach(range(1,5) as $key2 => $_){
+          $arrayTask1[$key1][$key2] = rand(5,25);
+        }
+      }
+      _dc($arrayTask1);
+    ?>
+
+  </div>
+  <div class="task2">
+    <?php
+      echo '<h2> Task ' . (++$taskNumber) . '</h2>';
+      
+    ?>
+  </div>
+  <div class="task3">
+    <?php
+      echo '<h2> Task ' . (++$taskNumber) . '</h2>';
+      
+    ?>
+  </div>
+  <div class="task4">
+    <?php
+      echo '<h2> Task ' . (++$taskNumber) . '</h2>';
+      
+    ?>
+  </div>
+  <div class="task5">
+    <?php
+      echo '<h2> Task ' . (++$taskNumber) . '</h2>';
+      
+    ?>
+  </div>
+  <div class="task6">
+    <?php
+      echo '<h2> Task ' . (++$taskNumber) . '</h2>';
+      
+    ?>
+  </div>
+  <div class="task7">
+    <?php
+      echo '<h2> Task ' . (++$taskNumber) . '</h2>';
+      
+    ?>
+  </div>
+  <div class="task8">
+    <?php
+      echo '<h2> Task ' . (++$taskNumber) . '</h2>';
+      
+    ?>
+  </div>
+  <div class="task9">
+    <?php
+      echo '<h2> Task ' . (++$taskNumber) . '</h2>';
+      
+    ?>
+  </div>
+  <div class="task10">
+    <?php
+      echo '<h2> Task ' . (++$taskNumber) . '</h2>';
+      
     ?>
   </div>
 </body>
