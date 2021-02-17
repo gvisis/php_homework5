@@ -68,19 +68,15 @@
     foreach($arrayTask1 as $key1 => $arrayInside){
       foreach(range(1,7) as $key2 => $_) {
         if ($key2 >= 5){
-          $arrayTask1[$key1][] = rand(2,25);
+          $arrayTask1[$key1][] = rand(5,25);
         }
       }
-  }
+    }
   echo '<pre>';
   print_r($arrayTask1);
   echo '</pre>';
 
     echo "<h3> -------- E --------- </h3>";
-
-    /* 
-    Suskaičiuokite kiekvieno iš antro lygio masyvų elementų sumą atskirai ir sumas panaudokite kaip reikšmes sukuriant naują masyvą. T.y. pirma naujo masyvo reikšmė turi būti lygi mažesnio masyvo, turinčio indeksą 0 dideliame masyve, visų elementų sumai 
-    */
     $arrayTask2E = [];
     foreach($arrayTask1 as $arrayInside){
       $arrayTask2E[] = array_sum($arrayInside) . '<br>';
@@ -93,7 +89,26 @@
   <div class="task3">
     <?php
       echo '<h2> Task ' . (++$taskNumber) . '</h2>';
-      
+
+    // Array of 10
+    $arrayTask3 = array_fill(0,10,0);
+
+    // Iterates through each empty array
+    foreach($arrayTask3 as &$arrayInside) {
+      // generates the size of the new Inside Array
+      $randomSize = rand(2,20);
+      // fills array with randomized size and fills with default 'A's
+      $arrayInside = array_fill(0,$randomSize,'A');
+      // changes values to random letters for each element.
+      foreach($arrayInside as &$letter) {
+        $letter = chr(rand(65,90));
+      }
+      unset($letter);
+      sort($arrayInside);
+      // sort($arrayInside,SORT_STRING); // do i need it?
+    }
+    echo '<pre>';
+    print_r($arrayTask3);
     ?>
   </div>
   <div class="task4">
