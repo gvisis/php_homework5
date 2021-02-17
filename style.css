@@ -1,0 +1,24 @@
+body {
+  box-sizing: border-box;
+  padding: 15px;
+}
+body h2 {
+  color: #007ec7cc;
+}
+
+.two-columns {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.two-columns h2 {
+  width: 100%;
+}
+.two-columns .left {
+  flex: 1;
+}
+.two-columns .right {
+  flex: 1;
+}
+
+/*# sourceMappingURL=style.css.map */
