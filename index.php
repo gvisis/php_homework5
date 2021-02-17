@@ -178,9 +178,6 @@
   <div class="task7">
     <?php
       echo '<h2> Task ' . (++$taskNumber) . '</h2>';
-      /* 
-      Prie 6 uždavinio masyvo antro lygio masyvų pridėkite dar du elementus: name ir surname. Elementus užpildykite stringais iš atsitiktinai sugeneruotų lotyniškų raidžių, kurių ilgiai nuo 5 iki 15.
-      */
 
       $alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
       foreach($userDB as &$user){
@@ -196,26 +193,15 @@
   <div class="task8">
     <?php
       echo '<h2> Task ' . (++$taskNumber) . '</h2>';
-      /* 
-      Sukurkite masyvą iš 10 elementų. 
-      Masyvo reikšmes užpildykite pagal taisyklę: 
-        generuokite skaičių nuo 0 iki 5. 
-        
-      Ir sukurkite tokio ilgio masyvą.
-
-      Jeigu reikšmė yra 0 masyvo nekurkite.
-        Antro lygio masyvo reikšmes užpildykite atsitiktiniais skaičiais nuo 0 iki 10. 
-      Ten kur masyvo nekūrėte reikšmę nuo 0 iki 10 įrašykite tiesiogiai.
-      */
       $arrayTask8 = [];
 
-      foreach(range(0,9) as &$value) {
+      foreach(range(0,9) as $key => &$value) {
         $randInArraySize = rand(0,5);
         if ($randInArraySize === 0) {
-          $arrayTask8[$value] = 0;     
+          $arrayTask8[$key] = rand(0,10);     
         } else {
           foreach(range(0,$randInArraySize) as &$number){
-            $arrayTask8[$value][$number] = rand(0,10);
+            $arrayTask8[$key][$number] = rand(0,10);
           }
         }
       }
@@ -227,7 +213,25 @@
   <div class="task9">
     <?php
       echo '<h2> Task ' . (++$taskNumber) . '</h2>';
-      
+      /* 
+      Paskaičiuokite 8 uždavinio masyvo visų reikšmių sumą
+      ir išrūšiuokite masyvą taip, kad pirmiausiai eitų mažiausios masyvo reikšmės 
+        arba jeigu reikšmė yra masyvas, to masyvo reikšmių sumos.
+      */
+      $task8Sum = 0;
+      $task8ArrSum = 0;
+      foreach ($arrayTask8 as $val) {
+        if (!is_array($val)) {
+          $task8Sum += $val;
+        } else {
+          $task8ArrSum += array_sum($val);
+        }
+      }
+      echo '<pre>';
+      echo "Array numbers sum: $task8Sum" . '<br>';
+      echo "Array inside values sum: $task8ArrSum" . '<br>';
+      sort($arrayTask8);
+      print_r($arrayTask8);
     ?>
   </div>
   <div class="task10">
