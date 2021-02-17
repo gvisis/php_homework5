@@ -141,16 +141,13 @@
       ];
   }
     echo '<pre>';
-    _dc($userDB);
+    print_r($userDB);
     
     ?>
   </div>
   <div class="task6">
     <?php
       echo '<h2> Task ' . (++$taskNumber) . '</h2>';
-      /* Išrūšiuokite 5 uždavinio masyvą pagal user_id didėjančia tvarka. Ir paskui išrūšiuokite pagal place_in_row mažėjančia tvarka. */
-
-
     echo '<div class="two-columns">';
       echo '<div class="left">';
         echo "user_id ascending: <br>";
@@ -181,6 +178,19 @@
   <div class="task7">
     <?php
       echo '<h2> Task ' . (++$taskNumber) . '</h2>';
+      /* 
+      Prie 6 uždavinio masyvo antro lygio masyvų pridėkite dar du elementus: name ir surname. Elementus užpildykite stringais iš atsitiktinai sugeneruotų lotyniškų raidžių, kurių ilgiai nuo 5 iki 15.
+      */
+
+      $alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+      foreach($userDB as &$user){
+        $user['name'] = substr(str_shuffle($alphabet),rand(5,15),rand(5,15));
+        $user['surname'] = substr(str_shuffle($alphabet),rand(5,15),rand(5,15));
+      }
+
+      echo '<pre>';
+      print_r($userDB);
+
     ?>
   </div>
   <div class="task8">
