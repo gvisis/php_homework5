@@ -21,14 +21,20 @@
           $arrayTask1[$key1][$key2] = rand(5,25);
         }
       }
-      _dc($arrayTask1);
+    _dc($arrayTask1);
     ?>
-
   </div>
   <div class="task2">
     <?php
       echo '<h2> Task ' . (++$taskNumber) . '</h2>';
-      
+      $countOver10 = 0;
+
+      foreach($arrayTask1 as $arrayInside){
+        foreach($arrayInside as $value){
+          if ($value > 10) $countOver10++;
+        }
+      }
+    echo "Count over 10: $countOver10";
     ?>
   </div>
   <div class="task3">
