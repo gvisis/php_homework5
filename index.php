@@ -196,7 +196,32 @@
   <div class="task8">
     <?php
       echo '<h2> Task ' . (++$taskNumber) . '</h2>';
-      
+      /* 
+      Sukurkite masyvą iš 10 elementų. 
+      Masyvo reikšmes užpildykite pagal taisyklę: 
+        generuokite skaičių nuo 0 iki 5. 
+        
+      Ir sukurkite tokio ilgio masyvą.
+
+      Jeigu reikšmė yra 0 masyvo nekurkite.
+        Antro lygio masyvo reikšmes užpildykite atsitiktiniais skaičiais nuo 0 iki 10. 
+      Ten kur masyvo nekūrėte reikšmę nuo 0 iki 10 įrašykite tiesiogiai.
+      */
+      $arrayTask8 = [];
+
+      foreach(range(0,9) as &$value) {
+        $randInArraySize = rand(0,5);
+        if ($randInArraySize === 0) {
+          $arrayTask8[$value] = 0;     
+        } else {
+          foreach(range(0,$randInArraySize) as &$number){
+            $arrayTask8[$value][$number] = rand(0,10);
+          }
+        }
+      }
+      echo '<pre>';
+      print_r($arrayTask8);
+
     ?>
   </div>
   <div class="task9">
