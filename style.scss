@@ -5,6 +5,17 @@ body {
     color: #007ec7cc;
   }
 }
+.spacing {
+  line-height: 0.8rem;
+  letter-spacing: 1rem;
+}
+.task10 {
+  display: inline-block;
+  .line {
+    display: flex;
+    justify-content: center;
+  }
+}
 
 .two-columns {
   h2 {

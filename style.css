@@ -6,6 +6,19 @@ body h2 {
   color: #007ec7cc;
 }
 
+.spacing {
+  line-height: 0.8rem;
+  letter-spacing: 1rem;
+}
+
+.task10 {
+  display: inline-block;
+}
+.task10 .line {
+  display: flex;
+  justify-content: center;
+}
+
 .two-columns {
   display: flex;
   justify-content: space-between;

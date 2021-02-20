@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charst=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <title>Document</title>
@@ -128,7 +129,7 @@
     <?php
       echo '<h2> Task ' . (++$taskNumber) . '</h2>';
     
-    // TODO: ------------- MISSING UNIQUE ID  -----------
+    // TODO: ------------- MISSING UNIQUE ID  ----------
 
     $userDB = array_fill(0,30,['user_id' => 0,'place_in_row' => 0]);
 
@@ -213,11 +214,6 @@
   <div class="task9">
     <?php
       echo '<h2> Task ' . (++$taskNumber) . '</h2>';
-      /* 
-      Paskaičiuokite 8 uždavinio masyvo visų reikšmių sumą
-      ir išrūšiuokite masyvą taip, kad pirmiausiai eitų mažiausios masyvo reikšmės 
-        arba jeigu reikšmė yra masyvas, to masyvo reikšmių sumos.
-      */
       $task8Sum = 0;
       $task8ArrSum = 0;
       foreach ($arrayTask8 as $val) {
@@ -234,10 +230,44 @@
       print_r($arrayTask8);
     ?>
   </div>
-  <div class="task10">
+  <div class="task10 spacing">
     <?php
       echo '<h2> Task ' . (++$taskNumber) . '</h2>';
-      
+/*       Sukurkite masyvą iš 10 elementų. 
+        
+Jo reikšmės masyvai iš 10 elementų. 
+
+Antro lygio masyvų reikšmės masyvai su dviem elementais value ir color.
+
+Reikšmė value vienas iš atsitiktinai parinktų simbolių: #%+*@裡, o reikšmė color atsitiktinai sugeneruota spalva formatu: #XXXXXX. 
+
+Pasinaudoję masyvų atspausdinkite “kvadratą” kurį sudarytų masyvo reikšmės nuspalvintos spalva color. */
+
+$arrayTask10 = array_fill(0,10,array_fill(0,10,['value' => 'val','color' => 'col']));
+$randSignValue = ['#','%','+','*','@','裡'];
+
+foreach($arrayTask10 as &$array2) {
+  foreach($array2 as &$array3){
+    // $sign= rand(0,mb_strlen($randSignValue, 'UTF-8') - 1);
+    $randColor = '#' . dechex(rand(0,16777215));
+    $array3 = [
+      'value' => $randSignValue[rand(0,5)],
+      'color' => $randColor,
+    ];
+  }
+  unset($array3);
+}
+unset($array2);
+
+foreach($arrayTask10 as $row) {
+  echo '<span class="line">';
+  foreach($row as $symbol) {
+    $symbolColor = $symbol['color'];
+    echo "<span style='color: $symbolColor'>" . $symbol['value'] . "</span>";
+  }
+  echo '</span><br>';
+}
+
     ?>
   </div>
 </body>
